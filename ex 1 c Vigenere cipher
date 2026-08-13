@@ -22,4 +22,5 @@ public class VigenereCipher {
         System.out.println("Ciphertext: " + result.toString());
     }
 }
-
+OutPut:
+Ciphertext: SXVUTO SX FUNR
