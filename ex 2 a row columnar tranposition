@@ -1,0 +1,36 @@
+import java.util.*;
+public class RowCol{
+	public static void main(String[] args){
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter a plaintext:");
+		String plaintext = sc.nextLine().replace(" ","");
+		char[] parr = plaintext.toCharArray();
+		System.out.println("Enter the Key:");
+		String key = sc.nextLine();
+		char[] karr = key.toCharArray();
+		int plen = parr.length;
+		int klen = karr.length;
+		int row = (int) Math.ceil((double) plen / klen);
+		int col = klen;
+		char[][] newarr = new char[row][col]; 
+		int k=0;
+	  for(int i=0;i<row;i++){
+		 for(int j=0;j<col;j++){
+		      if(k <plen){
+		        newarr[i][j] = parr[k];
+		        k++;
+		      }
+		      else{
+		        newarr[i][j]='X';
+		      }
+		}
+		}
+		for(int i=0;i<col;i++){
+		 for(int j=0;j<row;j++){
+		  System.out.print(newarr[j][i]);
+		 }
+		}
+	}
+}
+Input :
+Output:
