@@ -1,0 +1,65 @@
+import java.util.*;
+
+class Playfair {
+    public static void main(String args[]) {
+
+        Scanner sc = new Scanner(System.in);
+
+        String text;
+        char a, b;
+        int r1 = 0, c1 = 0, r2 = 0, c2 = 0;
+
+        System.out.print("Enter text: ");
+        text = sc.nextLine().toUpperCase();
+
+        char[][] mat = {
+            {'P','L','A','Y','F'},
+            {'I','R','B','C','D'},
+            {'E','G','H','K','M'},
+            {'N','O','Q','S','T'},
+            {'U','V','W','X','Z'}
+        };
+
+        System.out.print("Encrypted text: ");
+
+        for (int k = 0; k < text.length(); k = k + 2) {
+
+            a = text.charAt(k); //O
+            b = text.charAt(k + 1); //C
+
+            if (a == 'J') a = 'I';
+            if (b == 'J') b = 'I';
+            
+            // finding the position of the letters
+            for (int i = 0; i < 5; i++) {
+                for (int j = 0; j < 5; j++) {
+
+                    if (mat[i][j] == a) {
+                        r1 = i;
+                        c1 = j;
+                    }
+
+                    if (mat[i][j] == b) {
+                        r2 = i;
+                        c2 = j;
+                    }
+                }
+            }
+
+
+            if (r1 == r2) {
+                System.out.print(mat[r1][(c1 + 1) % 5]);
+                System.out.print(mat[r2][(c2 + 1) % 5]);
+            }
+            else if (c1 == c2) {
+                System.out.print(mat[(r1 + 1) % 5][c1]);
+                System.out.print(mat[(r2 + 1) % 5][c2]);
+            }
+            else {
+                System.out.print(mat[r1][c2]);
+                System.out.print(mat[r2][c1]);
+            }
+        }
+        System.out.println("\n");
+    }
+}
