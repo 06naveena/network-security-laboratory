@@ -32,5 +32,8 @@ public class RowCol{
 		}
 	}
 }
-Input :
-Output:
+Output:Enter a plaintext:
+a simple transposition
+Enter the Key:
+abcds
+alnisestitpimroopasn
